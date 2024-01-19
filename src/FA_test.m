@@ -11,14 +11,20 @@ result = FA(S, n, b_lo, b_up, func, term_criteria, gamma);
 disp('Znalezione minimum:');
 disp(result);
 disp('Wartość funkcji celu w znalezionym minimum:');
-Ackley(result(:,1)',result(:,2)');% Parametry algorytmu PSO
-x1_values = linspace(-5,5,1000);
-x2_values = linspace(-5,5,1000);
+Ackley(result);% Parametry algorytmu PSO
+x1_values = linspace(-5, 5, 1000);
+x2_values = linspace(-5, 5, 1000);
+
 [X, Y] = meshgrid(x1_values, x2_values);
+x1_vector = reshape(X, [], 1);
+x2_vector = reshape(Y, [], 1);
+Z = func([x1_vector, x2_vector]);
+
+% Przekształć wektor Z z powrotem na macierz
+Z_matrix = reshape(Z, size(X));
 %% Ackley
-Z = func(X, Y);
 figure;
-h = surf(X, Y, Z);
+h = surf(X, Y, Z_matrix);
 set(h,'LineStyle','none')
 title('Ackley Function');
 xlabel('X1');
@@ -27,4 +33,4 @@ zlabel('Ackley Value');
 colormap('parula'); % You can choose any colormap you prefer
 colorbar;
 hold on
-scatter3(result(:, 1), result(:, 2), func(result(:, 1)', result(:, 2)'), 'r', 'filled');
+scatter3(result(:, 1), result(:, 2), func(result), 'r', 'filled');

@@ -1,3 +1,3 @@
-function [y] = Himmelbau(x1,x2)
-    y = (x1.^2 + x2 -11).^2 + (x1 + x2.^2 -7).^2;
+function [y] = Himmelbau(x)
+    y = (x(:,1).^2 + x(:,2) -11).^2 + (x(:,1) + x(:,2).^2 -7).^2;
 end

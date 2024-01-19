@@ -7,7 +7,7 @@ function [x] = PSO(S,n,b_lo, b_up, func, term_criteria, w, fi_p, fi_g)
     for i=1:S
         x(i,:) = unifrnd(b_lo,b_up);
         p(i,:) = x(i,:);
-        if func(p(i, 1), p(i, 2)) < func(g(1), g(2))
+        if func(p(i, :)) < func(g)
             g = p(i, :);
         end
         v1(i,:) = unifrnd(-abs(b_up-b_lo),abs(b_up-b_lo));
@@ -21,9 +21,9 @@ function [x] = PSO(S,n,b_lo, b_up, func, term_criteria, w, fi_p, fi_g)
             end
             x(i, :) = x(i, :) + v1(i, :);
             
-            if func(x(i, 1), x(i, 2)) < func(p(i, 1), p(i, 2))
+            if func(x(i,:)) < func(p(i,:))
                 p(i, :) = x(i, :);
-                if func(p(i, 1), p(i, 2)) < func(g(1), g(2))
+                if func(p(i, :)) < func(g)
                     g = p(i, :);
                 end
             end
