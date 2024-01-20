@@ -2,7 +2,7 @@ function [x] = PSO(S,n,b_lo, b_up, func, term_criteria, w, fi_p, fi_g)
     x = zeros(S,n);
     p =zeros(S,n);
     v1 = zeros(S,n);
-    g = zeros(1,n);
+    g = ones(1,n);
     counter = 0;
     for i=1:S
         x(i,:) = unifrnd(b_lo,b_up);
@@ -20,7 +20,6 @@ function [x] = PSO(S,n,b_lo, b_up, func, term_criteria, w, fi_p, fi_g)
                 v1(i, d) = w * v1(i, d) + fi_p * rp * (p(i, d) - x(i, d)) + fi_g * rg * (g(d) - x(i, d));
             end
             x(i, :) = x(i, :) + v1(i, :);
-            
             if func(x(i,:)) < func(p(i,:))
                 p(i, :) = x(i, :);
                 if func(p(i, :)) < func(g)
@@ -28,6 +27,6 @@ function [x] = PSO(S,n,b_lo, b_up, func, term_criteria, w, fi_p, fi_g)
                 end
             end
         end
-        counter = counter + 1;
+        counter = counter + 1
     end
 end

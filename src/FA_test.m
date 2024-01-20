@@ -1,11 +1,11 @@
 % Definiowanie parametrów
-S = 180; % Liczba świetlików
+S = 160; % Liczba świetlików
 n = 2;  % Liczba zmiennych w funkcji celu
-b_lo = -5; % Dolne ograniczenie zmiennych
-b_up = 5;  % Górne ograniczenie zmiennych
+b_lo = [-5 -5]; % Dolne ograniczenie zmiennych
+b_up = [5 5];  % Górne ograniczenie zmiennych
 term_criteria = 1000; % Kryterium zakończenia
-gamma = 0.1; % Parametr gamma dla funkcji atrakcyjności
-func = @Himmelbau;
+gamma = 0.2; % Parametr gamma dla funkcji atrakcyjności
+func = @Ackley;
 result = FA(S, n, b_lo, b_up, func, term_criteria, gamma);
 % Wyświetlenie wyników
 disp('Znalezione minimum:');
