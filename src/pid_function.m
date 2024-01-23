@@ -40,5 +40,4 @@ function [e_sum] = pid_function(X)
         u(:,k)=r2.*e(:,k-2)+r1.*e(:,k-1)+r0.*e(:,k)+u(:,k-1);
         u(:,k) = max(min(u(:,k),Umax),Umin);
     end
-    e_sum
 end

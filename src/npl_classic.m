@@ -35,10 +35,10 @@ delta = 1e-5;
 d(1:kk) = 0;
 teta = 5;
 y_ob(1:kk) = 0;
-N = 77;
-Nu=109;
+N = 81;
+Nu=11;
 %% Pętla regulatora
-lambda = 1.36;
+lambda = 0.8667;
 Umax =1;
 Umin = -1;
 
@@ -119,4 +119,4 @@ title('Charakterystyki y,y_{zad}');
 xlabel('k - number próbki');
 ylabel('Wartość')
 legend("Wartość na wyjściu y", "Wartość zadana y_{zad}",Location="northwest")
-matlab2tikz ('zad4_1_N170Nu30lambda15.tex' , 'showInfo' , false)
+matlab2tikz ('zad_npl_fi_test.tex' , 'showInfo' , false)

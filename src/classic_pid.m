@@ -6,15 +6,15 @@ Umin= -1;
 Umax = 1;
 
 %% Parametry regulatora PID
-Kp = 0.6191;
-Ti = 5.7846 ;
-Td = 0.3766;
+Kp = 0.485;
+Ti = 4.6; 
+Td = 0.54;
 Tp=0.5;
 
 %% Wyznaczone wartości r1,r2,r0
-r1 = Kp*((Tp/(2*Ti)) -2 *(Td/Tp) -1)
-r2 = Kp*Td/Tp
-r0 = Kp*(1+(Tp/(2*Ti)) + (Td/Tp))
+r1 = Kp*((Tp/(2*Ti)) -2 *(Td/Tp) -1);
+r2 = Kp*Td/Tp;
+r0 = Kp*(1+(Tp/(2*Ti)) + (Td/Tp));
 
 %% Inicjalizacja wektorów
 kk=1000;
@@ -71,4 +71,4 @@ title('Charakterystyki y,y_{zad}');
 xlabel('k - number próbki');
 ylabel('Wartość')
 legend("Wartość na wyjściu y", "Wartość zadana y_{zad}",Location="northwest")
-matlab2tikz ('zad5dodPID.tex' , 'showInfo' , false)
+matlab2tikz ('zad2_manual.tex' , 'showInfo' , false)
